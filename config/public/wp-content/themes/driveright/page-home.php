@@ -12,7 +12,11 @@ get_header(); ?>
 				'theme_location' => 'homepage-secondary', 
 				'menu_class'     => 'homepage-secondary-menu',
 			) ); ?>
-			<?php the_post_thumbnail(); ?>
+
+			<?php global $post ?>
+			<?php $url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>
+			<div class="homepage-image" style="background-image: url(<?php echo $url ?>);">
+			</div>
 		</div>
 
 		<main id="main" class="site-main" role="main">

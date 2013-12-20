@@ -38,7 +38,6 @@ get_header(); ?>
 										<h2><?php echo $item->post_title; ?></h2>
 										<div class="product-index-summary">
 											<?php echo get_the_excerpt() ?>
-											<?php // TODO remove ?> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas a nisl scelerisque lectus iaculis malesuada. Curabitur egestas sapien placerat ornare porttitor.
 										</div>
 									</div>
 									<span class="arrow"></span>

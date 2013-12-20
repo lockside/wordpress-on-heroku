@@ -14,7 +14,7 @@ get_header(); ?>
 					<div class="article-inner">
 
 						<div class="product-image-wrapper">
-							<?php the_post_thumbnail(); ?>
+							<?php the_post_thumbnail( array( 330, 330 ) ); ?>
 						</div>
 
 						<div class="product-content">

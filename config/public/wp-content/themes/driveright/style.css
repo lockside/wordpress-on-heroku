@@ -22,6 +22,14 @@ along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normali
 and Blueprint http://www.blueprintcss.org/
 */
 
+/* =Web fonts
+-------------------------------------------------------------- */
+@import url("//hello.myfonts.net/count/295c62");
+@font-face {font-family: 'Calibri-Italic';src: url('webfonts/295C62_0_0.eot');src: url('webfonts/295C62_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/295C62_0_0.woff') format('woff'),url('webfonts/295C62_0_0.ttf') format('truetype');}
+@font-face {font-family: 'Calibri-BoldItalic';src: url('webfonts/295C62_1_0.eot');src: url('webfonts/295C62_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/295C62_1_0.woff') format('woff'),url('webfonts/295C62_1_0.ttf') format('truetype');}
+@font-face {font-family: 'Calibri-Bold';src: url('webfonts/295C62_2_0.eot');src: url('webfonts/295C62_2_0.eot?#iefix') format('embedded-opentype'),url('webfonts/295C62_2_0.woff') format('woff'),url('webfonts/295C62_2_0.ttf') format('truetype');}
+@font-face {font-family: 'Calibri';src: url('webfonts/295C62_3_0.eot');src: url('webfonts/295C62_3_0.eot?#iefix') format('embedded-opentype'),url('webfonts/295C62_3_0.woff') format('woff'),url('webfonts/295C62_3_0.ttf') format('truetype');}
+
 
 /* =Reset
 -------------------------------------------------------------- */
@@ -104,9 +112,22 @@ input,
 select,
 textarea {
 	color: #6e6e6e;
-	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-family: Calibri, Arial, sans-serif;
 	font-size: 12px;
 	line-height: 1.5;
+}
+
+select {
+	/*background-image: url();*/
+	background-color: #e0e0e0;
+	padding: 4px;
+	border: none;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	-webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 /* Headings */
@@ -114,19 +135,23 @@ h1, h2, h3, h4, h5, h6 {
 	clear: both;
 }
 h1 {
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: bold;
 }
 h2 {
-	font-size: 14px;
+	font-size: 16px;
 	font-weight: norml;
 	margin-bottom: 8px;
+}
+h3 {
+	font-size: 14px;
 }
 hr {
 	background-color: #ccc;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
+	clear: both;
 }
 
 /* Text elements */
@@ -216,6 +241,9 @@ table {
 }
 th {
 	font-weight: bold;
+}
+td {
+	padding: 5px;
 }
 img {
 	height: auto; /* Make sure images are scaled correctly. */
@@ -446,8 +474,13 @@ a:active {
 .main-navigation .menu-item-wraper {
 	display: block;
 	border-right: 1px solid #fff;
-	padding: 2px 30px;
+	padding: 2px 14px;
 	border-right: 1px solid #fff;
+	min-width: 100px;
+	text-align: center;
+}
+.main-navigation li:last-child a .menu-item-wraper  {
+	border: 0;
 }
 .main-navigation ul ul {
 	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
@@ -485,6 +518,12 @@ a:active {
 .menu-toggle {
 	cursor: pointer;
 	display: none;
+	color: #fff;
+	text-align: center;
+	font-weight: normal;
+	text-transform: uppercase;
+	font-size: 12px;
+	padding: 4px 0;
 }
 
 @media screen and (max-width: 600px) {
@@ -578,6 +617,13 @@ a:active {
 .site-main .gallery-columns-4 .gallery-item {
 }
 .site-main .gallery-columns-4 .gallery-item img {
+}
+
+.image-alignleft-wrapper {
+	width: 200px;
+	float: left;
+	min-height: 160px;
+	margin-right: 20px;
 }
 
 /* Make sure embeds and iframes fit their containers */
@@ -719,7 +765,6 @@ object {
 article {
 	background-color: #e0e0e0;
 	padding: 20px 20px 20px 20px;
-	margin-top: 30px;
 }
 .article-inner {
 	background-color: #fff;
@@ -728,7 +773,18 @@ article {
 	border-radius: 4px;
 	padding: 1px 20px 10px 20px;
 }
+.site-content {
+	margin-top: 30px;
+}
 
+.content-section {
+	clear: both;
+	background-color: #fff;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 20px;
+}
 
 /* =Homepage
 ----------------------------------------------- */
@@ -736,15 +792,15 @@ ul.homepage-secondary-menu {
 	list-style-type: none;
 	background-color: #e3000b;
 	margin: 0;
-	padding: 20px;
+	padding: 24px 20px 0 20px;
 	color: #fff;
-	min-height: 354px;
+	min-height: 336px;
 }
 ul.homepage-secondary-menu a {
 	display: block;
 	text-transform: uppercase;
 	color: #fff;
-	padding: 12px 0 12px 0;
+	padding: 10px 0 10px 0;
 	text-decoration: none;
 	border-bottom: 1px solid #fff;
 }
@@ -752,47 +808,53 @@ ul.homepage-secondary-menu  li:last-child a {
 	border-bottom: none;
 }
 .homepage-top {
-	margin-top: 30px;
 	-webkit-border-radius: 8px;
 	-moz-border-radius: 8px;
 	border-radius: 8px;
 	overflow: hidden;
+	margin-bottom: 30px;
 }
 .homepage-top .menu-homepage-secondary-container {
 	float: left;
-	width: 260px;
+	width: 30%;
 }
-.homepage-top img {
+.homepage-top .homepage-image {
 	display: block;
 	float: left;
-	width: 700px;
+	width: 70%;
+	height: 360px;
 }
 .home article {
 	padding: 5px 10px 20px 10px;
 }
-.home .content-section {
+.home .content-column {
 	display: block;
 	position: relative;
 	float: left;
-	width: 174px;
+	width: 25%;
+	margin-top: -20px;
+	margin-bottom: 20px;
+}
+.home .content-column a {
+	display: block;
+	position: relative;
+	/*width: 174px;*/
 	background-color: #fff;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
-	padding: 0px 20px 0px 20px;
+	padding: 20px 20px 0px 20px;
 	margin: 0 10px 0 10px;
 	min-height: 200px;
 	text-decoration: none;
 }
-.home .content-section a {
-	text-decoration: none;
-}
-.home h3 {
+.home .content-column strong {
+	display: block;
 	text-transform: uppercase;
 	font-weight: bold;
-	margin-bottom: 6px;
+	margin: 0px 0 8px 0;
 }
-.home .content-section .arrow:after {
+.home .content-column strong:after {
 	position: absolute;
 	bottom: 6px;
 	right: 24px;
@@ -857,10 +919,46 @@ ul.homepage-secondary-menu  li:last-child a {
 }
 .product-main .product-image-wrapper {
 	float: left;
-	width: 55%;
+	width: 40%;
 	margin-top: 26px;
 }
 .product-main .product-content {
 	float: left;
-	width: 45%;
+	width: 60%;
+}
+
+
+/* =Blog 
+----------------------------------------------- */
+.blog #primary,
+.archive #primary,
+.single #primary {
+  float:right;
+  width: 70%;
+}
+.blog #secondary,
+.archive #secondary,
+.single #secondary  {
+  float:left;
+  width: 30%;
+}
+.blog .site-content {
+	background-color: #e0e0e0;
+}
+.secondary-inner {
+	background-color: #e0e0e0;
+	padding: 20px 0px 20px 20px;
+}
+.secondary-inner-inner {
+	background-color: #fff;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding: 20px 20px 10px 20px;
+}
+#secondary .widget-title {
+	margin-bottom: 10px;
+}
+#secondary ul {
+  margin-left: 16px;
 }

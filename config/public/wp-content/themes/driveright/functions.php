@@ -88,6 +88,7 @@ add_action( 'widgets_init', 'driveright_widgets_init' );
  * Enqueue scripts and styles.
  */
 function driveright_scripts() {
+	
 	wp_enqueue_style( 'driveright-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'driveright-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
@@ -128,6 +129,11 @@ require get_template_directory() . '/inc/jetpack.php';
 
 
 function content_section( $atts, $content = null ) {  
-	return '<div class="content-section">'.$content.'<span class="arrow"></span></div>'; 
+	return '<div class="content-section">'.$content.'</div>'; 
 }  
-add_shortcode("section", "content_section");  
+add_shortcode("section", "content_section");
+
+function column_with_arrow( $atts, $content = null ) {  
+	return '<div class="content-column">'.$content.'</div>';
+}  
+add_shortcode("column-with-arrow", "column_with_arrow");  
